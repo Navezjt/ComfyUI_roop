@@ -1,9 +1,10 @@
-import launch
 import os
 import pkg_resources
 import sys
 from tqdm import tqdm
 import urllib.request
+sys.path.append(os.path.dirname(os.path.realpath(__file__)))
+import launch
 
 req_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), "requirements.txt")
 
@@ -23,6 +24,10 @@ if not os.path.exists(models_dir):
 
 if not os.path.exists(model_path):
     download(model_url, model_path)
+
+# Copy model to ./scripts/ using a hard link
+dst = os.path.join(os.path.dirname(os.path.realpath(__file__)), "scripts", model_name)
+os.link(model_path, dst)
 
 print("Checking roop requirements")
 with open(req_file) as file:
