@@ -1,5 +1,26 @@
 # roop nodes for ComfyUI
-Work in progress, check back later...
+
+[ComfyUI](https://github.com/comfyanonymous/ComfyUI) nodes for the [roop A1111 webui script](https://github.com/s0md3v/sd-webui-roop).
+
+## Installation
+
+Enter the following command from the commandline starting in ComfyUI/custom_nodes/
+```
+git clone https://github.com/ssitu/ComfyUI_roop
+```
+If you are using the portable Windows version of ComfyUI, you can run `install.bat` to install requirements.
+
+Otherwise, activate your venv if you use one for ComfyUI and run `install.py`.
+
+A total of about 1.3 GB worth of extra models will be installed during installation and runtime.
+
+## Usage
+
+Nodes can be found in the node menu under `image/postprocessing`:
+
+|Node|Description|
+| --- | --- |
+| roop | Only has the inputs related to face swapping from the original script |
 
 ---
 #### Original description below:
