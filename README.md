@@ -12,7 +12,7 @@ git clone https://github.com/ssitu/ComfyUI_roop
 
     Otherwise, activate your venv if you use one for ComfyUI and run `install.py`.
 
-A total of about 1.3 GB worth of extra models will be installed during installation and runtime.
+A total of about 854 MB worth of extra models will be installed during installation and runtime.
 
 ## Usage
 
