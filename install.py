@@ -25,13 +25,6 @@ if not os.path.exists(models_dir):
 if not os.path.exists(model_path):
     download(model_url, model_path)
 
-# Copy model to ./scripts/ using a hard link
-dst = os.path.join(os.path.dirname(os.path.realpath(__file__)), "scripts", model_name)
-if not os.path.exists(dst):
-    os.link(model_path, dst)
-else:
-    print(f"Existing model found at {dst}, skipping hard link.")
-
 print("Checking roop requirements")
 with open(req_file) as file:
     for package in file:

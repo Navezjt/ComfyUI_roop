@@ -19,6 +19,11 @@ from scripts.roop_logging import logger
 
 providers = ["CPUExecutionProvider"]
 
+models_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "models")
+insightface_path = os.path.join(models_path, "insightface")
+insightface_models_path = os.path.join(insightface_path, "models")
+swapper_path = os.path.join(models_path, "roop")
+
 
 @dataclass
 class UpscaleOptions:
@@ -73,7 +78,13 @@ def upscale_image(image: Image, upscale_options: UpscaleOptions):
 
 
 def get_face_single(img_data: np.ndarray, face_index=0, det_size=(640, 640)):
-    face_analyser = insightface.app.FaceAnalysis(name="buffalo_l", providers=providers)
+    face_analyser = insightface.app.FaceAnalysis(name="buffalo_l", providers=providers, root=insightface_path)
+
+    buffalo_path = os.path.join(insightface_models_path, "buffalo_l.zip")
+    if os.path.exists(buffalo_path):
+        # Remove the zip to save space
+        os.remove(buffalo_path)
+
     face_analyser.prepare(ctx_id=0, det_size=det_size)
     face = face_analyser.get(img_data)
 
@@ -123,7 +134,7 @@ def swap_face(
         source_face = get_face_single(source_img, face_index=0)
         if source_face is not None:
             result = target_img
-            model_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), model)
+            model_path = os.path.join(swapper_path, model)
             face_swapper = getFaceSwapModel(model_path)
 
             for face_num in faces_index:
