@@ -4,13 +4,13 @@
 
 ## Installation
 
-Enter the following command from the commandline starting in ComfyUI/custom_nodes/
+1. Enter the following command from the commandline starting in ComfyUI/custom_nodes/
 ```
 git clone https://github.com/ssitu/ComfyUI_roop
 ```
-If you are using the portable Windows version of ComfyUI, you can run `install.bat` to install requirements.
+2. If you are using the portable Windows version of ComfyUI, you can run `install.bat` to install requirements.
 
-Otherwise, activate your venv if you use one for ComfyUI and run `install.py`.
+    Otherwise, activate your venv if you use one for ComfyUI and run `install.py`.
 
 A total of about 1.3 GB worth of extra models will be installed during installation and runtime.
 
