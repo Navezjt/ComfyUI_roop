@@ -3,7 +3,7 @@
 [ComfyUI](https://github.com/comfyanonymous/ComfyUI) nodes for the [roop A1111 webui script](https://github.com/s0md3v/sd-webui-roop).
 
 ## Installation
-
+You must have the Visual Studio C++ Build Tools installed. Check the original description for details.
 1. Enter the following command from the commandline starting in ComfyUI/custom_nodes/
 ```
 git clone https://github.com/ssitu/ComfyUI_roop
