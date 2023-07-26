@@ -17,7 +17,6 @@ from scripts.swapper import UpscaleOptions, swap_face, ImageResult
 from scripts.roop_version import version_flag
 import os
 
-
 def get_models():
     models_path = os.path.join(scripts.basedir(), "models" + os.path.sep + "roop" + os.path.sep + "*")
     models = glob.glob(models_path)
