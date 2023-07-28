@@ -109,13 +109,12 @@ patched_functions = [patched_get_model, patched_faceanalysis_init, patched_facea
 
 
 def apply_logging_patch(console_logging_level):
-    match console_logging_level:
-        case 0:
-            patch_insightface(*patched_functions)
-            logger.setLevel(logging.WARNING)
-        case 1:
-            patch_insightface(*patched_functions)
-            logger.setLevel(logging.INFO)
-        case 2:
-            patch_insightface(*original_functions)
-            logger.setLevel(logging.INFO)
+    if console_logging_level == 0:
+        patch_insightface(*patched_functions)
+        logger.setLevel(logging.WARNING)
+    elif console_logging_level == 1:
+        patch_insightface(*patched_functions)
+        logger.setLevel(logging.INFO)
+    elif console_logging_level == 2:
+        patch_insightface(*original_functions)
+        logger.setLevel(logging.INFO)
